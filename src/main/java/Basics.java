@@ -1,5 +1,6 @@
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
+import org.example.files.ReUsableMethods;
 import org.example.files.payload;
 import org.testng.Assert;
 
@@ -39,7 +40,7 @@ public class Basics {
         String getPlaceResponse = given().log().all().queryParam("place_id", placeId).queryParam("key", "qaclick123")
                 .when().get("/maps/api/place/get/json")
                 .then().log().all().assertThat().statusCode(200).body("address", equalTo(newAddress)).extract().response().asString();
-        JsonPath jsonPath1 = new JsonPath(getPlaceResponse);
+        JsonPath jsonPath1 = ReUsableMethods.rawToJson(getPlaceResponse);
         String actualAddress = jsonPath1.get("address");
         System.out.println(actualAddress);
         Assert.assertEquals(actualAddress, newAddress);
