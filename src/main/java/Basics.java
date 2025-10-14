@@ -1,6 +1,7 @@
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import org.example.files.payload;
+import org.testng.Assert;
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
@@ -41,6 +42,7 @@ public class Basics {
         JsonPath jsonPath1 = new JsonPath(getPlaceResponse);
         String actualAddress = jsonPath1.get("address");
         System.out.println(actualAddress);
+        Assert.assertEquals(actualAddress, newAddress);
     }
 
 
