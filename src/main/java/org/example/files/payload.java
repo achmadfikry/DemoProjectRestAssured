@@ -23,7 +23,7 @@ public class payload {
     public static String CoursePrice(){
         return "{\n" +
                 "  \"dashboard\": {\n" +
-                "    \"purchaseAmount\": 910,\n" +
+                "    \"purchaseAmount\": 1162,\n" +
                 "    \"website\": \"rahulshettyacademy.com\"\n" +
                 "  },\n" +
                 "  \"courses\": [\n" +
@@ -41,6 +41,11 @@ public class payload {
                 "      \"title\": \"RPA\",\n" +
                 "      \"price\": 45,\n" +
                 "      \"copies\": 10\n" +
+                "    },\n" +
+                "    {\n" +
+                "      \"title\": \"Appium\",\n" +
+                "      \"price\": 36,\n" +
+                "      \"copies\": 7\n" +
                 "    }\n" +
                 "  ]\n" +
                 "}";
