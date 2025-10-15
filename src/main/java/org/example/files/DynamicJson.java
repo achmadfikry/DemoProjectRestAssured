@@ -12,7 +12,7 @@ public class DynamicJson {
     public void AddBook(){
         RestAssured.baseURI="http://216.10.245.166/Library";
         String response = given().log().all().header("Content-Type", "application/json")
-                .body(payload.AddLibrary())
+                .body(payload.AddLibrary("adfgh", "12345"))
                 .when().post("/Addbook.php")
                 .then().log().all().assertThat().statusCode(200).extract().response().asString();
         JsonPath jsonPath = ReUsableMethods.rawToJson(response);

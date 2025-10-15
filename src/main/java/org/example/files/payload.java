@@ -51,11 +51,11 @@ public class payload {
                 "}";
     }
 
-    public static String AddLibrary(){
+    public static String AddLibrary(String aisle, String isbn){
         String payload = "{\n" +
                 "\"name\":\"Learn Appium Automation with Java\",\n" +
-                "\"isbn\":\"abcdef\",\n" +
-                "\"aisle\":\"227fd001\",\n" +
+                "\"isbn\":\""+isbn+"\",\n" +
+                "\"aisle\":\""+aisle+"\",\n" +
                 "\"author\":\"John doe\"\n" +
                 "}\n";
         return payload;
