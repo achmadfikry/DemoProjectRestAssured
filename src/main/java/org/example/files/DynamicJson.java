@@ -9,11 +9,11 @@ import static io.restassured.RestAssured.given;
 
 public class DynamicJson {
 
-    @Test
-    public void AddBook(){
+    @Test(dataProvider = "BooksData")
+    public void AddBook(String isbn, String aisle){
         RestAssured.baseURI="http://216.10.245.166/";
         String response = given().log().all().header("Content-Type", "application/json")
-                .body(payload.AddLibrary("adfgh", "12345"))
+                .body(payload.AddLibrary(isbn, aisle))
                 .when().post("Library/Addbook.php")
                 .then().log().all().assertThat().statusCode(200).extract().response().asString();
         JsonPath jsonPath = ReUsableMethods.rawToJson(response);
